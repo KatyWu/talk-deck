@@ -1,0 +1,1057 @@
+<!DOCTYPE html><html lang="en"><head>
+
+
+<meta charset="utf-8">
+<title>Katy — University Talk</title>
+<meta name="viewport" content="width=1920, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Archivo+Black&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+
+<script type="application/json" id="speaker-notes">
+[
+  "Cover. Hold a beat. 'Hey everyone — As a designer. That's the whole brief tonight.' Tags below = the map. ~30s.",
+  "Self intro. BA TW → MA UK → PlanB. Brand + Web. Half my coworkers I've never met IRL. <90s.",
+  "You've seen the work. Three pieces. Don't sell — just orient so they know what I mean later. ~60s.",
+  "The map. Four chapters + closing. Q break at end of each. Set the contract.",
+  "Chapter 01 divider. Breathe. 'Let's start with what I actually do all day.'",
+  "The logo question. Every family dinner. Rhetorical — hold a beat, let the audience feel it.",
+  "Two columns: Brand vs UIUX. Walk each bullet. Brand = systems not singles.",
+  "Setup question. 'What IS a brand system?' Pause. Let it land. Answer in the next 2 slides.",
+  "台電 + 聶永真. NT$960K. It's not the logo — it's the rulebook. Leave time for the reaction.",
+  "小米 + 原研哉. NT$8M. Square to round. Got roasted. Still — it's the system, not the shape.",
+  "PlanB walkthrough. Remind: no photos please. Show real thing: colour, type, grid, photography.",
+  "Setup: UI / UX / UIUX — same or different? Let someone answer before revealing.",
+  "UIUX daily reality. 5 steps. Point 3 (engineer sync) usually gets a reaction.",
+  "PlanB UIUX system. Component library, colour tokens, spacing. Show product UI.",
+  "Typical week. Walk the grid. Punchline: more meetings, less Figma.",
+  "Relationship map. I'm in the centre. PM at top. All roads lead through the designer.",
+  "Person 01 — PM. Most meetings, most opinions. Learn their taste first.",
+  "Person 02 — Marketing. Loudest internal client. Always urgent. Template library is your peace.",
+  "Person 03 — Engineers. Logic-first. Don't argue taste — argue data, function, outcome.",
+  "Person 04 — Other designers. Ask for crits when they're free. Blind spots are real.",
+  "Person 05 — Content/partners. Small asks that add up. Set expectations early.",
+  "Sell your design. The design only ships if they buy in. Practice the pitch.",
+  "Sandwich method. Demo both versions out loud. Pause — let them absorb.",
+  "Project end to end. 7 steps. Point at each arrow: that's a meeting.",
+  "Real project. Brief → concept → ship. Show the actual artefact.",
+  "好看 ≠ 有用. High-traffic ugly vs beautiful no-click. Which would you ship?",
+  "Skills that compound. Money slide for career-minded students. Slow down here.",
+  "Q break Ch.01. ~5 min. Prompt: what surprised you most?",
+  "Ch.01 recap. Three takeaways. Read each, pause. Bridge to Ch.02."
+]
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Katy's University Talk
+   Palette:  black (base) · electric blue (chapter) · neon green (accent)
+   Type:     Archivo Black (display) · Space Grotesk (body) · JetBrains Mono (labels)
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --black: #050607;
+  --blue: #1538FF;
+  --blue-deep: #0B1DB2;
+  --green: #CFFF3C;
+  --green-deep: #A8E021;
+  --ink: #F6F6F4;
+  --muted: rgba(246, 246, 244, 0.55);
+  --muted-blue: rgba(255, 255, 255, 0.65);
+  --rule: rgba(246, 246, 244, 0.18);
+  --rule-strong: rgba(246, 246, 244, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: #000;
+  color: var(--ink);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Slide base ── */
+deck-stage section {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+  color: var(--ink);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+deck-stage section.blue { background: var(--blue); color: var(--ink); }
+deck-stage section.green { background: var(--green); color: var(--black); }
+
+/* ── Chrome (top header + bottom footer) ── */
+.hdr {
+  position: absolute;
+  top: 58px; left: 96px; right: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 5;
+}
+.hdr .mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+.hdr .mark::before {
+  content: "";
+  width: 20px; height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg fill="%23CFFF3C" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/></svg>') no-repeat center/contain;
+  display: inline-block;
+}
+section.blue .hdr { color: var(--muted-blue); }
+section.blue .hdr .mark::before { background-image: url('data:image/svg+xml;utf8,<svg fill="%23CFFF3C" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/></svg>'); background-color: transparent; }
+section.green .hdr { color: rgba(5, 6, 7, 0.65); }
+section.green .hdr .mark::before { background-image: url('data:image/svg+xml;utf8,<svg fill="%23050607" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/></svg>'); background-color: transparent; }
+
+.ftr {
+  position: absolute;
+  bottom: 52px; left: 96px; right: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  z-index: 5;
+}
+section.blue .ftr { color: var(--muted-blue); }
+section.green .ftr { color: rgba(5, 6, 7, 0.6); }
+
+/* Grid texture for blue slides */
+.grid-tex {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 96px 96px;
+  pointer-events: none;
+  z-index: 1;
+}
+.grid-dark {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(246,246,244,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(246,246,244,0.1) 1px, transparent 1px);
+  background-size: 96px 96px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Body container ── */
+.body {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  padding: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Type ── */
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin: 0;
+}
+section.green .eyebrow { color: var(--black); }
+
+.display {
+  font-family: "Archivo Black", "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: 180px;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+.display.sm { font-size: 130px; }
+.display.md { font-size: 170px; }
+.display.lg { font-size: 220px; }
+.display.xl { font-size: 280px; }
+.hl { color: var(--green); }
+section.green .hl { color: var(--blue); }
+
+.subtitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--muted);
+  max-width: 1600px;
+  text-wrap: pretty;
+}
+section.blue .subtitle { color: var(--muted-blue); }
+section.green .subtitle { color: rgba(5, 6, 7, 0.7); }
+
+/* ── Bullets ── */
+.bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.bullets li {
+  font-size: 34px;
+  line-height: 1.4;
+  padding-left: 54px;
+  position: relative;
+  text-wrap: pretty;
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 30px; height: 4px;
+  background: var(--green);
+}
+section.green .bullets li::before { background: var(--black); }
+
+.numlist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 34px; counter-reset: n; }
+.numlist li {
+  font-size: 38px;
+  line-height: 1.3;
+  padding-left: 120px;
+  position: relative;
+  counter-increment: n;
+  text-wrap: pretty;
+}
+.numlist li::before {
+  content: counter(n, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: 0;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 60px;
+  color: var(--green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+section.green .numlist li::before { color: var(--blue); }
+
+/* ── Cards ── */
+.cards { display: grid; gap: 24px; }
+.cards.c2 { grid-template-columns: repeat(2, 1fr); }
+.cards.c3 { grid-template-columns: repeat(3, 1fr); }
+.cards.c4 { grid-template-columns: repeat(4, 1fr); }
+.card {
+  padding: 34px 32px;
+  background: rgba(246, 246, 244, 0.03);
+  border: 1.5px solid var(--rule);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+section.blue .card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); }
+section.green .card { background: rgba(5,6,7,0.03); border-color: rgba(5,6,7,0.15); }
+.card .n {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  text-transform: uppercase;
+}
+section.green .card .n { color: var(--blue); }
+.card h4 {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+.card p {
+  font-size: 24px;
+  line-height: 1.45;
+  margin: 0;
+  color: var(--muted);
+}
+section.blue .card p { color: rgba(255,255,255,0.82); }
+section.green .card p { color: rgba(5,6,7,0.72); }
+
+/* ── Two col ── */
+.twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; flex: 1; align-items: start; margin-top: 40px; }
+
+/* ── Week schedule ── */
+.weekgrid {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  column-gap: 50px;
+  margin-top: 40px;
+  border-top: 1.5px solid var(--rule-strong);
+}
+.weekgrid > * {
+  padding: 24px 0;
+  border-bottom: 1.5px solid var(--rule-strong);
+  display: flex;
+  align-items: baseline;
+}
+.weekgrid .day {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.02em;
+  color: var(--green);
+}
+.weekgrid .what { font-size: 30px; line-height: 1.4; }
+.weekgrid .tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+  justify-content: flex-end;
+}
+
+/* ── Section divider ── */
+.divider .body { justify-content: center; padding-top: 200px; padding-bottom: 200px; }
+.big-ch {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 28px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.big-num {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 520px;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--green);
+  margin: 20px 0 24px;
+}
+.big-ti {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 200px;
+  line-height: 0.9;
+  margin: 0;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* ── Stat slide ── */
+.stat { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.stat-num {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 560px;
+  line-height: 0.82;
+  color: var(--green);
+  letter-spacing: -0.05em;
+}
+section.blue .stat-num { color: var(--green); }
+section.green .stat-num { color: var(--blue); }
+
+/* ── Quote slide ── */
+.quote {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 150px;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+.quote .hl { color: var(--green); }
+.quote-attr {
+  margin-top: 50px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+section.blue .quote-attr { color: var(--muted-blue); }
+
+/* ── Tag pills ── */
+.tagrow { display: flex; flex-wrap: wrap; gap: 14px 16px; margin-top: 56px; }
+.tagrow .tag {
+  padding: 14px 28px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  background: transparent;
+}
+.tagrow .tag.on { background: var(--green); color: var(--black); border-color: var(--green); }
+section.blue .tagrow .tag { border-color: rgba(255,255,255,0.9); }
+
+/* ── Talkmap ── */
+.talkmap { position: relative; flex: 1; min-height: 620px; margin-top: 40px; }
+.talkmap .me {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 210px; height: 210px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 52px;
+  letter-spacing: -0.02em;
+}
+.talkmap .node {
+  position: absolute;
+  width: 380px;
+  padding: 24px 28px;
+  background: rgba(246,246,244,0.06);
+  border: 1.5px solid var(--rule);
+  border-left: 4px solid var(--green);
+}
+.talkmap .node .role {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  display: block;
+}
+.talkmap .node .note {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: 10px;
+  display: block;
+}
+.talkmap .n1 { top: 0; left: 50%; transform: translateX(-50%); }
+.talkmap .n2 { top: 25%; right: 0; }
+.talkmap .n3 { top: 25%; left: 0; }
+.talkmap .n4 { bottom: 18%; right: 0; }
+.talkmap .n5 { bottom: 18%; left: 0; }
+.talkmap .n6 { bottom: 0; left: 50%; transform: translateX(-50%); }
+
+/* ── Compare ── */
+.compare { display: grid; grid-template-columns: 1fr 1fr; flex: 1; margin-top: 40px; border: 1.5px solid var(--rule-strong); }
+.compare .col { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+.compare .col + .col { border-left: 1.5px solid var(--rule-strong); }
+.compare h3 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 90px;
+  line-height: 1;
+  margin: 0 0 16px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.compare .col.good h3 { color: var(--green); }
+.compare .col.done h3 { color: var(--ink); }
+.compare ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.compare li { font-size: 26px; line-height: 1.45; }
+
+/* ── Pipeline timeline ── */
+.timeline { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 50px; }
+.step {
+  padding: 24px 20px;
+  background: rgba(246,246,244,0.04);
+  border-top: 3px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 260px;
+}
+.step.highlight { background: var(--green); color: var(--black); border-top-color: var(--green); }
+.step .s-n {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  color: var(--green);
+  opacity: 0.8;
+}
+.step.highlight .s-n { color: var(--black); opacity: 0.6; }
+.step h5 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 32px;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+.step p { font-size: 19px; line-height: 1.4; margin: 0; opacity: 0.75; }
+
+/* ── Cover specifics ── */
+.cover .body { justify-content: space-between; }
+.cover-mark {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 26px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.small-note {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+section.blue .small-note { color: var(--muted-blue); }
+
+/* Overflow guards */
+.body > * { max-width: 100%; }
+</style>
+<style id="deck-stage-print-page">@page { size: 1920px 1080px; margin: 0; } @media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } * { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }</style><link id="gfont-Manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Rubik" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Noto-Sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"></head>
+
+<body data-new-gr-c-s-check-loaded="14.1284.0" data-gr-ext-installed="" style="font-family: &quot;Noto Sans&quot;; cursor: crosshair; background-color: rgb(124, 50, 50);" data-cc-id="cc-1">
+<deck-stage width="1920" height="1080" data-cc-id="cc-3">
+
+<!-- ═══════════ 01 · COVER ═══════════ -->
+<section class="blue cover" data-label="Cover" data-screen-label="01 Cover" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="0" data-deck-active="">
+  <div class="grid-tex"></div>
+  <div class="hdr">
+    <span class="mark">KATY WU × Plan ₿ Network</span>
+    
+  </div>
+  <div class="body" data-cc-id="cc-2">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+      <h1 class="display xl" style="margin-top:0;color:var(--ink);">
+        AS A<br>
+        <span class="hl">DESIGNER<svg viewBox="0 0 24 24" fill="currentColor" style="width:0.32em;height:0.32em;display:inline-block;vertical-align:baseline;margin-left:0.04em;"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/></svg></span>
+      </h1>
+    </div>
+    <div>
+      <div class="tagrow">
+        <span class="tag on">#brand-and-uiux-designer</span>
+        <span class="tag">#foreign-company</span>
+        <span class="tag">#remote-work</span>
+        <span class="tag">#bitcoin</span>
+        <span class="tag">#ai</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════ 02 · SELF INTRO ═══════════ -->
+<section data-label="Self intro" data-screen-label="02 Self intro" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="1">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">00 — WHO I AM</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top: 0;">
+      HI, I'M <span class="hl">KATY.</span>
+    </h2>
+    <div style="flex:1; margin-top: 40px; border-top: 1.5px solid var(--rule-strong); display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="display: grid; grid-template-columns: 100px 1fr auto; gap: 0 40px; align-items: center; padding: 0; flex:1; border-bottom: 1.5px solid var(--rule-strong);">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; width:72px; height:72px; border:2.5px solid var(--rule-strong); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">BA</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Digital Design / Commercial Design</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;">Taiwan</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 100px 1fr auto; gap: 0 40px; align-items: center; padding: 0; flex:1; border-bottom: 1.5px solid var(--rule-strong);">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; width:72px; height:72px; border:2.5px solid var(--rule-strong); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">MA</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Graphic Design</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;">UK</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 100px 1fr auto; gap: 0 40px; align-items: center; padding: 0; flex:1; border-bottom: 1.5px solid var(--rule-strong);">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase; width:72px; height:72px; border:2.5px solid var(--rule-strong); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">01</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Brand and UIUX Designer</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;">Plan ₿ Network</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 100px 1fr auto; gap: 0 40px; align-items: center; padding: 0; flex:1;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.12em; color:var(--green); text-transform:uppercase; width:72px; height:72px; border:2.5px solid var(--green); border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">Now</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.02em; text-transform:uppercase;">Designer</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.1em; color:var(--muted); text-transform:uppercase;">Jan3</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════ 03 · YOU'VE SEEN THE WORK ═══════════ -->
+<section data-label="The work" data-screen-label="03 The work" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">00 — RECENT WORK</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top: 28px;">
+      MAYBE YOU'VE SEEN<br>
+      THE <span class="hl">WORK.</span>
+    </h2>
+    <div class="cards c3" style="margin-top: 60px;">
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div style="aspect-ratio: 16/9; background: linear-gradient(135deg,#0d0d0d,#1a1a1a); position: relative; display: flex; align-items: flex-end; justify-content: flex-start; padding: 22px;">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:120px; line-height:1; color:rgba(207,255,60,0.18); position:absolute; top:14px; left:22px;">01</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.16em; color:rgba(255,255,255,.35); text-transform:uppercase; z-index:1;">[ image placeholder ]</span>
+        </div>
+      </div>
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div style="aspect-ratio: 16/9; background: linear-gradient(135deg,#0d0d0d,#1a1a1a); position: relative; display: flex; align-items: flex-end; justify-content: flex-start; padding: 22px;">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:120px; line-height:1; color:rgba(207,255,60,0.18); position:absolute; top:14px; left:22px;">02</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.16em; color:rgba(255,255,255,.35); text-transform:uppercase; z-index:1;">[ image placeholder ]</span>
+        </div>
+      </div>
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div style="aspect-ratio: 16/9; background: linear-gradient(135deg,#0d0d0d,#1a1a1a); position: relative; display: flex; align-items: flex-end; justify-content: flex-start; padding: 22px;">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:120px; line-height:1; color:rgba(207,255,60,0.18); position:absolute; top:14px; left:22px;">03</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.16em; color:rgba(255,255,255,.35); text-transform:uppercase; z-index:1;">[ image placeholder ]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════ 04 · FIVE TAGS / MAP ═══════════ -->
+<section data-label="Map" data-screen-label="04 Map" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="2">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">00 — MAP</span></div>
+  <div class="body">
+    <h2 class="display" style="margin-top: 0; font-size: 130px;">
+      THE <span class="hl">MAP.</span>
+    </h2>
+    <div class="cards c3" style="margin-top: 32px; flex: 1; grid-template-rows: 1fr 1fr; align-items: stretch;">
+      <div class="card" style="align-items:center; text-align:center; justify-content:center;"><div class="n">/ CH 01</div><h4 style="font-size:52px;">Brand &amp; UIUX Designer</h4></div>
+      <div class="card" style="align-items:center; text-align:center; justify-content:center;"><div class="n">/ CH 02</div><h4 style="font-size:52px;">Foreign Company &amp; Remote Work</h4></div>
+      <div class="card" style="align-items:center; text-align:center; justify-content:center;"><div class="n">/ CH 03</div><h4 style="font-size:52px;">Bitcoin</h4></div>
+      <div class="card" style="align-items:center; text-align:center; justify-content:center;"><div class="n">/ CH 04</div><h4 style="font-size:52px;">AI</h4></div>
+      <div class="card" style="align-items:center; text-align:center; justify-content:center;"><div class="n">/ CH 05</div><h4 style="font-size:52px;">Closing</h4></div>
+      <div class="card" style="background: var(--green); border-color: var(--green); align-items:center; text-align:center; justify-content:center;">
+        <div class="n" style="color: var(--black); opacity: 0.7;">/ Q&amp;A</div>
+        <h4 style="color: var(--black); font-size:52px;">After each chapter</h4>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════ 05 · CH01 DIVIDER ═══════════ -->
+<section class="blue divider" data-label="Ch01 Divider" data-screen-label="05 Ch01 — Brand &amp; UIUX" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-tex"></div>
+  <div class="hdr"><span class="mark">CH 01 — BRAND &amp; UIUX DESIGNER</span></div>
+  <div class="body" style="padding-top:140px; padding-bottom:140px;">
+    <div class="big-ch">Chapter 01</div>
+    <div class="big-num" style="font-size:380px;">01</div>
+    <h2 class="big-ti" style="font-size:120px;">Brand &amp; <span class="hl">UIUX</span> Designer</h2>
+    <div style="margin-top:28px; font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.18em; color:var(--muted-blue); text-transform:uppercase;">"what I actually do all day."</div>
+  </div>
+</section>
+
+<!-- ═══════════ 06 · SO YOU MAKE LOGOS ═══════════ -->
+<section data-label="So you make logos" data-screen-label="06 So you make logos" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — BRAND DESIGNER</span></div>
+  <div class="body" style="justify-content:center;">
+    <div class="quote">"So… you make <span class="hl">logos?"</span></div>
+    <div class="quote-attr">— every relative, every Lunar New Year</div>
+  </div>
+</section>
+
+<!-- ═══════════ 07 · WHAT I ACTUALLY MAKE ═══════════ -->
+<section data-label="What I actually make" data-screen-label="07 What I actually make" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — BRAND DESIGNER</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">What I actually <span class="hl">make.</span></h2>
+    <div class="twocol" style="margin-top:48px; align-items:start;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.2em; color:var(--green); text-transform:uppercase; margin-bottom:28px;">/ Brand</div>
+        <ul class="bullets">
+          <li>Brand systems &amp; guidelines</li>
+          <li>Event visuals &amp; campaigns</li>
+          <li>Presentations &amp; print</li>
+          <li>Internal tools &amp; templates</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.2em; color:var(--green); text-transform:uppercase; margin-bottom:28px;">/ UIUX</div>
+        <ul class="bullets">
+          <li>Product websites</li>
+          <li>Product UI support</li>
+          <li>Design systems &amp; components</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 08 · BRAND SYSTEM QUESTION ═══════════ -->
+<section data-label="Brand system question" data-screen-label="08 Brand system?" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — BRAND SYSTEM</span></div>
+  <div class="body" style="justify-content:center;">
+    <div class="quote">Is a brand system<br>just a <span class="hl">logo?</span></div>
+    <div style="margin-top:48px; font-family:'Space Grotesk',sans-serif; font-size:36px; color:var(--muted);">Let's look at two real examples.</div>
+  </div>
+</section>
+
+<!-- ═══════════ 09 · 台電 REBRAND ═══════════ -->
+<section data-label="Taiwan Power rebrand" data-screen-label="09 台電 rebrand" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — CASE STUDY 01</span></div>
+  <div class="body">
+    <div class="twocol" style="margin-top:0; flex:1; align-items:center;">
+      <div style="aspect-ratio:4/3; background:linear-gradient(135deg,#0d0d0d,#1a1a1a); position:relative; display:flex; align-items:flex-end; padding:22px; border-radius:8px; overflow:hidden;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:120px; line-height:1; color:rgba(207,255,60,0.10); position:absolute; top:12px; left:20px; text-transform:uppercase;">TPC</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.16em; color:rgba(255,255,255,.3); text-transform:uppercase; z-index:1;">[ image placeholder ]</span>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:16px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase;">Taiwan Power Company</div>
+        <h3 style="font-family:'Archivo Black',sans-serif; font-size:90px; line-height:0.92; letter-spacing:-0.03em; margin:0; text-transform:uppercase;">聶永真</h3>
+        <div style="font-family:'Archivo Black',sans-serif; font-size:64px; line-height:1; letter-spacing:-0.02em; color:var(--green);">NT$960,000</div>
+        <p style="font-size:30px; line-height:1.4; color:var(--muted); max-width:680px;">He didn't sell a logo — he sold a complete rulebook: colour, type, grid, tone, application.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 10 · 小米 REBRAND ═══════════ -->
+<section data-label="Xiaomi rebrand" data-screen-label="10 小米 rebrand" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — CASE STUDY 02</span></div>
+  <div class="body">
+    <div class="twocol" style="margin-top:0; flex:1; align-items:center;">
+      <div style="aspect-ratio:4/3; background:linear-gradient(135deg,#0d0d0d,#1a1a1a); position:relative; display:flex; align-items:flex-end; padding:22px; border-radius:8px; overflow:hidden;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:140px; line-height:1; color:rgba(207,255,60,0.10); position:absolute; top:12px; left:20px; text-transform:uppercase;">MI</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.16em; color:rgba(255,255,255,.3); text-transform:uppercase; z-index:1;">[ image placeholder ]</span>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:16px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase;">Xiaomi</div>
+        <h3 style="font-family:'Archivo Black',sans-serif; font-size:90px; line-height:0.92; letter-spacing:-0.03em; margin:0; text-transform:uppercase;">原研哉</h3>
+        <div style="font-family:'Archivo Black',sans-serif; font-size:64px; line-height:1; letter-spacing:-0.02em; color:var(--green);">NT$8,000,000</div>
+        <p style="font-size:30px; line-height:1.4; color:var(--muted); max-width:680px;">Square to rounded corners. Got roasted online. Still — you're paying for the system, not just the shape.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 11 · PLANB BRAND WALKTHROUGH ═══════════ -->
+<section data-label="PlanB brand walkthrough" data-screen-label="11 PlanB brand" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — PLAN ₿ NETWORK</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">Plan <span class="hl">₿</span> Brand System</h2>
+    <div style="flex:1; margin-top:32px; background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:12px; position:relative; display:flex; align-items:flex-end; padding:36px; overflow:hidden;">
+      <div style="position:absolute; top:36px; left:40px; display:flex; gap:20px; align-items:center;">
+        <div style="width:52px; height:52px; border-radius:8px; background:rgba(207,255,60,0.12); border:1.5px solid rgba(207,255,60,0.3);"></div>
+        <div style="width:110px; height:52px; border-radius:8px; background:rgba(255,255,255,0.05);"></div>
+        <div style="width:80px; height:52px; border-radius:8px; background:rgba(255,255,255,0.05);"></div>
+        <div style="width:140px; height:52px; border-radius:8px; background:rgba(255,255,255,0.05);"></div>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.16em; color:rgba(255,255,255,.22); text-transform:uppercase;">[ brand guidelines · please no photos ]</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 12 · UIUX QUESTION ═══════════ -->
+<section data-label="UIUX question" data-screen-label="12 UIUX?" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — UIUX DESIGNER</span></div>
+  <div class="body" style="justify-content:center;">
+    <div class="quote">UI / UX / UIUX —<br>same <span class="hl">thing?</span></div>
+    <div style="margin-top:48px; font-family:'Space Grotesk',sans-serif; font-size:36px; color:var(--muted);">Do you need to code? Which tool first? Is it just making things pretty?</div>
+  </div>
+</section>
+
+<!-- ═══════════ 13 · UIUX DAILY WORK ═══════════ -->
+<section data-label="UIUX daily work" data-screen-label="13 UIUX daily" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — UIUX DESIGNER</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">The actual <span class="hl">work.</span></h2>
+    <ol class="numlist" style="margin-top:40px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+      <li>Turn PM requirements into a clickable flow</li>
+      <li>Every button placement, size, colour has a reason</li>
+      <li>Sync with engineers — what's actually buildable</li>
+      <li>Build prototype → test with users → iterate</li>
+      <li>Handoff to dev, monitor post-launch</li>
+    </ol>
+    <div style="margin-top:24px; font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.14em; color:var(--muted); text-transform:uppercase;">UI = looks like &nbsp;·&nbsp; UX = works like</div>
+  </div>
+</section>
+
+<!-- ═══════════ 14 · PLANB UIUX SYSTEM ═══════════ -->
+<section data-label="PlanB UIUX system" data-screen-label="14 PlanB UIUX" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — DESIGN SYSTEM</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">Plan <span class="hl">₿</span> Design System</h2>
+    <div style="flex:1; margin-top:32px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+      <div style="background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:12px; display:flex; flex-direction:column; justify-content:flex-end; padding:28px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ component library ]</span>
+      </div>
+      <div style="background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:12px; display:flex; flex-direction:column; justify-content:flex-end; padding:28px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ colour tokens ]</span>
+      </div>
+      <div style="background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:12px; display:flex; flex-direction:column; justify-content:flex-end; padding:28px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ product UI ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 15 · TYPICAL WEEK ═══════════ -->
+<section data-label="Typical week" data-screen-label="15 Typical week" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — WORKING DAY</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">A typical <span class="hl">week.</span></h2>
+    <div class="weekgrid" style="flex:1; margin-top:32px;">
+      <div class="day">Mon</div><div class="what">Async catch-up · clear reply queue from overnight</div><div class="tag">Async</div>
+      <div class="day">Tue</div><div class="what">Weekly sync with PM · review &amp; feedback round</div><div class="tag">Meeting</div>
+      <div class="day">Wed</div><div class="what">Deep work · brand deliverables · no meetings</div><div class="tag">Focus</div>
+      <div class="day">Thu</div><div class="what">UIUX iterations · engineer handoff · async review</div><div class="tag">Collab</div>
+      <div class="day">Fri</div><div class="what">Polish &amp; wrap · weekly progress update to manager</div><div class="tag">Wrap</div>
+    </div>
+    <div style="margin-top:24px; font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.14em; color:var(--muted); text-transform:uppercase;">"more meetings, less figma."</div>
+  </div>
+</section>
+
+<!-- ═══════════ 16 · WHO I TALK TO ═══════════ -->
+<section class="blue" data-label="Who I talk to" data-screen-label="16 Who I talk to" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-tex"></div>
+  <div class="hdr"><span class="mark">01 — STAKEHOLDERS</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0; color:var(--ink);">Who I talk to <span class="hl">all day.</span></h2>
+    <div class="talkmap">
+      <div class="me">ME</div>
+      <div class="node n1"><span class="role">Product<br>Manager</span><span class="note">Weekly sync · most opinions</span></div>
+      <div class="node n2"><span class="role">Web<br>Team</span><span class="note">Build what I design</span></div>
+      <div class="node n3"><span class="role">Marketing<br>Team</span><span class="note">Most urgent requests</span></div>
+      <div class="node n4"><span class="role">Engineers</span><span class="note">Handoff + feasibility</span></div>
+      <div class="node n5"><span class="role">Content &amp;<br>Partners</span><span class="note">Small asks, often</span></div>
+      <div class="node n6"><span class="role">Other<br>Leads</span><span class="note">Occasional projects</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 17 · PERSON 01 — PM ═══════════ -->
+<section data-label="Person 01 PM" data-screen-label="17 Person 01 — PM" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — STAKEHOLDERS</span></div>
+  <div class="body" style="justify-content:center;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.22em; color:var(--muted); text-transform:uppercase; margin-bottom:32px;">Person 01</div>
+    <h2 class="display sm">Product <span class="hl">Manager</span></h2>
+    <div style="width:80px; height:3px; background:var(--rule-strong); margin:44px 0;"></div>
+    <p style="font-family:'Archivo Black',sans-serif; font-size:48px; line-height:1.15; letter-spacing:-0.02em; text-transform:uppercase; max-width:1200px;">Your most important working relationship. Learn their taste before anything else.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 18 · PERSON 02 — MARKETING ═══════════ -->
+<section data-label="Person 02 Marketing" data-screen-label="18 Person 02 — Marketing" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — STAKEHOLDERS</span></div>
+  <div class="body" style="justify-content:center;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.22em; color:var(--muted); text-transform:uppercase; margin-bottom:32px;">Person 02</div>
+    <h2 class="display sm"><span class="hl">Marketing</span></h2>
+    <div style="width:80px; height:3px; background:var(--rule-strong); margin:44px 0;"></div>
+    <p style="font-family:'Archivo Black',sans-serif; font-size:48px; line-height:1.15; letter-spacing:-0.02em; text-transform:uppercase; max-width:1200px;">Loudest internal client. Always urgent. A shared template library is your peace treaty.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 19 · PERSON 03 — ENGINEERS ═══════════ -->
+<section data-label="Person 03 Engineers" data-screen-label="19 Person 03 — Engineers" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — STAKEHOLDERS</span></div>
+  <div class="body" style="justify-content:center;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.22em; color:var(--muted); text-transform:uppercase; margin-bottom:32px;">Person 03</div>
+    <h2 class="display sm"><span class="hl">Engineers</span></h2>
+    <div style="width:80px; height:3px; background:var(--rule-strong); margin:44px 0;"></div>
+    <p style="font-family:'Archivo Black',sans-serif; font-size:48px; line-height:1.15; letter-spacing:-0.02em; text-transform:uppercase; max-width:1200px;">Don't argue taste. Argue data, function, and outcome. Logic-first brains respect logic-first reasoning.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 20 · PERSON 04 — OTHER DESIGNERS ═══════════ -->
+<section data-label="Person 04 Other designers" data-screen-label="20 Person 04 — Designers" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — STAKEHOLDERS</span></div>
+  <div class="body" style="justify-content:center;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.22em; color:var(--muted); text-transform:uppercase; margin-bottom:32px;">Person 04</div>
+    <h2 class="display sm">Other <span class="hl">Designers</span></h2>
+    <div style="width:80px; height:3px; background:var(--rule-strong); margin:44px 0;"></div>
+    <p style="font-family:'Archivo Black',sans-serif; font-size:48px; line-height:1.15; letter-spacing:-0.02em; text-transform:uppercase; max-width:1200px;">Ask for crits when they're free. Everyone has blind spots — feedback saves your work.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 21 · PERSON 05 — CONTENT/PARTNERS ═══════════ -->
+<section data-label="Person 05 Content partners" data-screen-label="21 Person 05 — Content" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — STAKEHOLDERS</span></div>
+  <div class="body" style="justify-content:center;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.22em; color:var(--muted); text-transform:uppercase; margin-bottom:32px;">Person 05</div>
+    <h2 class="display sm">Content &amp;<br><span class="hl">Partners</span></h2>
+    <div style="width:80px; height:3px; background:var(--rule-strong); margin:44px 0;"></div>
+    <p style="font-family:'Archivo Black',sans-serif; font-size:48px; line-height:1.15; letter-spacing:-0.02em; text-transform:uppercase; max-width:1200px;">Small requests that add up fast. Set expectations early — and keep a backlog.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 22 · SELL YOUR DESIGN ═══════════ -->
+<section data-label="Sell your design" data-screen-label="22 Sell your design" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — COMMUNICATION</span></div>
+  <div class="body" style="justify-content:center;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase; margin-bottom:40px;">Treat everyone as your client.</div>
+    <div class="quote">Your job isn't to<br>hand it over —<br>it's to <span class="hl">sell it.</span></div>
+    <div style="margin-top:48px; font-size:34px; line-height:1.4; color:var(--muted); max-width:1200px;">Why this approach. What problem it solves. Why it beats the alternative. They buy in → design ships.</div>
+  </div>
+</section>
+
+<!-- ═══════════ 23 · SANDWICH METHOD ═══════════ -->
+<section data-label="Sandwich method" data-screen-label="23 Sandwich method" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — COMMUNICATION</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">Good → Bad → <span class="hl">Good.</span></h2>
+    <div class="twocol" style="margin-top:40px; flex:1; align-items:stretch;">
+      <div style="border-top:3px solid var(--green); padding-top:28px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.2em; color:var(--green); text-transform:uppercase; margin-bottom:24px;">/ With Manager</div>
+        <p style="font-size:34px; line-height:1.5; color:var(--ink);">"I like this direction — but I'm worried X will confuse users. Want me to try Y?"</p>
+      </div>
+      <div style="border-top:3px solid var(--rule-strong); padding-top:28px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase; margin-bottom:24px;">/ With Engineer</div>
+        <p style="font-size:34px; line-height:1.5; color:var(--ink);">"This component is clean — but on mobile it'll squeeze. Want to split the padding into two tokens?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 24 · PROJECT END TO END ═══════════ -->
+<section data-label="Project end to end" data-screen-label="24 Project end to end" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — PROJECT FLOW</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">A project, <span class="hl">end to end.</span></h2>
+    <div class="timeline">
+      <div class="step"><div class="s-n">01</div><h5>Brief</h5><p>Goal, audience, constraints</p></div>
+      <div class="step"><div class="s-n">02</div><h5>Research</h5><p>Patterns, competitors, user context</p></div>
+      <div class="step"><div class="s-n">03</div><h5>Concepts</h5><p>2–3 directions, rough and fast</p></div>
+      <div class="step"><div class="s-n">04</div><h5>Review</h5><p>Present to PM, collect feedback</p></div>
+      <div class="step"><div class="s-n">05</div><h5>Iterate</h5><p>Refine, tighten details</p></div>
+      <div class="step highlight"><div class="s-n">06</div><h5>Ship</h5><p>Handoff to dev, go live</p></div>
+      <div class="step"><div class="s-n">07</div><h5>Measure</h5><p>Track metrics, feed back in</p></div>
+    </div>
+    <div style="margin-top:20px; font-family:'JetBrains Mono',monospace; font-size:26px; letter-spacing:0.14em; color:var(--muted); text-transform:uppercase;">"every arrow is a meeting."</div>
+  </div>
+</section>
+
+<!-- ═══════════ 25 · REAL PROJECT EXAMPLE ═══════════ -->
+<section data-label="Real project example" data-screen-label="25 Real project" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — CASE STUDY</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">A real <span class="hl">project.</span></h2>
+    <div style="flex:1; margin-top:32px; display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+      <div style="background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--green); border-radius:8px; display:flex; flex-direction:column; justify-content:space-between; padding:28px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:20px; letter-spacing:.14em; color:var(--green); text-transform:uppercase;">Brief</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:.12em; color:rgba(255,255,255,.2); text-transform:uppercase;">[ placeholder ]</span>
+      </div>
+      <div style="background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; display:flex; flex-direction:column; justify-content:space-between; padding:28px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:20px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase;">Concept</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:.12em; color:rgba(255,255,255,.2); text-transform:uppercase;">[ placeholder ]</span>
+      </div>
+      <div style="background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; display:flex; flex-direction:column; justify-content:space-between; padding:28px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:20px; letter-spacing:.14em; color:var(--muted); text-transform:uppercase;">Iterate</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:.12em; color:rgba(255,255,255,.2); text-transform:uppercase;">[ placeholder ]</span>
+      </div>
+      <div style="background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--green); border-radius:8px; display:flex; flex-direction:column; justify-content:space-between; padding:28px; background:rgba(207,255,60,0.06);">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:20px; letter-spacing:.14em; color:var(--green); text-transform:uppercase;">Ship</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:.12em; color:rgba(255,255,255,.2); text-transform:uppercase;">[ placeholder ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 26 · 好看 ≠ 有用 ═══════════ -->
+<section data-label="Looks vs works" data-screen-label="26 好看≠有用" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — DESIGN THINKING</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">Looks good <span class="hl">≠</span> works.</h2>
+    <div class="twocol" style="margin-top:40px; flex:1; align-items:stretch;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="flex:1; background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; position:relative; display:flex; align-items:flex-end; padding:24px; overflow:hidden;">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:100px; line-height:1; color:rgba(207,255,60,0.08); position:absolute; top:16px; left:24px; text-transform:uppercase;">Ugly</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ high-traffic banner ]</span>
+        </div>
+        <div style="font-family:'Archivo Black',sans-serif; font-size:36px; letter-spacing:-0.01em; text-transform:uppercase; color:var(--green);">High traffic. Converts.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="flex:1; background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; position:relative; display:flex; align-items:flex-end; padding:24px; overflow:hidden;">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:100px; line-height:1; color:rgba(207,255,60,0.08); position:absolute; top:16px; left:24px; text-transform:uppercase;">Pretty</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ award-winning banner ]</span>
+        </div>
+        <div style="font-family:'Archivo Black',sans-serif; font-size:36px; letter-spacing:-0.01em; text-transform:uppercase; color:var(--muted);">Looks great. Nobody clicks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 27 · SKILLS THAT COMPOUND ═══════════ -->
+<section data-label="Skills that compound" data-screen-label="27 Skills that compound" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — CAREER</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">Skills that <span class="hl">compound.</span></h2>
+    <div style="flex:1; margin-top:36px; border-top:1.5px solid var(--rule-strong); display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:0 40px; align-items:baseline; padding:18px 0; border-bottom:1.5px solid var(--rule-strong);">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:-0.02em;">01</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; letter-spacing:-0.02em; text-transform:uppercase;">Research — find the right problem first</span>
+      </div>
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:0 40px; align-items:baseline; padding:18px 0; border-bottom:1.5px solid var(--rule-strong);">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:-0.02em;">02</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; letter-spacing:-0.02em; text-transform:uppercase;">Systems thinking — deliver rules, not single files</span>
+      </div>
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:0 40px; align-items:baseline; padding:18px 0; border-bottom:1.5px solid var(--rule-strong);">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:-0.02em;">03</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; letter-spacing:-0.02em; text-transform:uppercase;">Writing &amp; presenting — sell what you make</span>
+      </div>
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:0 40px; align-items:baseline; padding:18px 0; border-bottom:1.5px solid var(--rule-strong);">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:-0.02em;">04</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; letter-spacing:-0.02em; text-transform:uppercase;">A little code — speak the engineer's language</span>
+      </div>
+      <div style="display:grid; grid-template-columns:56px 1fr; gap:0 40px; align-items:baseline; padding:18px 0;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:-0.02em;">05</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; letter-spacing:-0.02em; text-transform:uppercase;"><span class="hl">AI fluency</span> — not replaced, accelerated</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 28 · Q BREAK CH01 ═══════════ -->
+<section class="green" data-label="Q break Ch01" data-screen-label="28 Q break — Ch01" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="hdr"><span class="mark">Q BREAK — 01</span></div>
+  <div class="body" style="justify-content:center; gap:40px;">
+    <h2 class="display sm" style="margin-top:0; color:var(--black);">Questions.</h2>
+    <ul class="bullets" style="max-width:1100px;">
+      <li style="color:var(--black);">What's the most interesting design case you've seen?</li>
+      <li style="color:var(--black);">UIUX — where do you even start?</li>
+      <li style="color:var(--black);">Anything about brand systems or working with stakeholders?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ 29 · CH01 RECAP ═══════════ -->
+<section data-label="Ch01 recap" data-screen-label="29 Ch01 — Recap" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">01 — TAKEAWAYS</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">Three things to <span class="hl">keep.</span></h2>
+    <ol class="numlist" style="margin-top:48px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+      <li><strong>Brand ≠ logo</strong> — it's a complete system. The logo is just the signature.</li>
+      <li><strong>Useful beats beautiful</strong> — design for the user, not your portfolio.</li>
+      <li><span class="hl">Research + systems</span> are your moat — single designs are cheap, thinking is not.</li>
+    </ol>
+  </div>
+</section>
+
+</deck-stage>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
