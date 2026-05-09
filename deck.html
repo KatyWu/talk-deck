@@ -1643,5 +1643,33 @@
 
 </deck-stage>
 
+<script>/* presenter-bridge: BroadcastChannel sync for presenter.html */
+(function(){
+  if(!window.BroadcastChannel)return;
+  var bc=new BroadcastChannel('deck-presenter');
+  var stage=document.querySelector('deck-stage');
+  if(!stage)return;
+  var role=new URLSearchParams(location.search).get('_snthumb');
+  var busy=false;
+  // Projector + cur-frame broadcast slide changes
+  if(role!=='next')stage.addEventListener('slidechange',function(e){
+    if(!busy)bc.postMessage({type:'sc',i:e.detail.index,total:e.detail.total});
+  });
+  bc.addEventListener('message',function(e){
+    var d=e.data;if(!d)return;
+    // Preview frames: sync to received index (next-frame adds 1)
+    if(d.type==='sc'&&role){
+      var t=d.i+(role==='next'?1:0);
+      if(!busy&&stage.index!==t){busy=true;stage.goTo(t);busy=false;}
+    }
+    // Projector + cur-frame: respond to navigation commands
+    if((d.type==='next'||d.type==='prev'||d.type==='go')&&role!=='next'){
+      if(d.type==='next')stage.next();
+      else if(d.type==='prev')stage.prev();
+      else if(typeof d.i==='number')stage.goTo(d.i);
+    }
+  });
+})();
+</script>
 
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

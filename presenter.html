@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Presenter View</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #111;
+    color: #f0f0f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    background: #0a0a0a;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 0 20px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+  }
+  .counter {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    min-width: 70px;
+  }
+  .counter strong { color: #fff; font-size: 18px; }
+  .timer-display {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: #CFFF3C;
+    min-width: 90px;
+    letter-spacing: 0.04em;
+  }
+  .timer-display.overtime { color: #ff6b6b; }
+  .topbar-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+  button {
+    appearance: none;
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    color: #e0e0e0;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 120ms;
+    white-space: nowrap;
+  }
+  button:hover { background: #333; }
+  button.accent {
+    background: #1538FF;
+    border-color: #1538FF;
+    color: #fff;
+  }
+  button.accent:hover { background: #1e47ff; }
+  button.timer-btn { min-width: 110px; }
+
+  /* ── Main layout ── */
+  .main {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  /* ── Left: current slide ── */
+  .left-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 14px;
+    border-right: 1px solid #222;
+    overflow: hidden;
+  }
+  .cur-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #444;
+    flex-shrink: 0;
+  }
+  .cur-frame-wrap {
+    flex: 1;
+    min-height: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #333;
+    background: #000;
+    position: relative;
+  }
+  .cur-frame-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    pointer-events: none;
+  }
+  .nav-row {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .nav-row button {
+    flex: 1;
+    padding: 12px 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .nav-row .nav-prev { text-align: left; }
+  .nav-row .nav-next { text-align: right; background: #1c1c1c; }
+
+  /* ── Right panel: next slide + notes ── */
+  .right-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    overflow: hidden;
+  }
+
+  .next-section { flex-shrink: 0; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  .next-frame-wrap {
+    aspect-ratio: 16 / 9;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid #2a2a2a;
+    background: #000;
+  }
+  .next-frame-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    pointer-events: none;
+  }
+  .next-title {
+    margin-top: 7px;
+    font-size: 12px;
+    color: #555;
+    font-style: italic;
+    height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .notes-section {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .notes-box {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #ccc;
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+  }
+  .notes-box::-webkit-scrollbar { width: 6px; }
+  .notes-box::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  .notes-box .empty { color: #3a3a3a; font-style: italic; }
+  .notes-box p { margin-bottom: 6px; }
+  .notes-box p:last-child { margin-bottom: 0; }
+
+  /* ── Keyboard hint ── */
+  .kbd-hint {
+    font-size: 11px;
+    color: #333;
+    text-align: center;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+  kbd {
+    background: #222;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="counter"><strong id="cur-num">—</strong> <span id="sep">/ —</span></span>
+  <span class="timer-display" id="timer-display">00:00</span>
+  <button class="timer-btn" id="timer-btn" onclick="toggleTimer()">▶ Start Timer</button>
+  <button onclick="resetTimer()" style="padding:7px 10px;">↺</button>
+  <div class="topbar-right">
+    <button class="accent" onclick="openProjector()">◉ Open on Projector</button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="left-panel">
+    <div class="cur-label">Current slide</div>
+    <div class="cur-frame-wrap">
+      <iframe id="cur-frame" src="deck.html?_snthumb=cur" title="Current slide"></iframe>
+    </div>
+    <div class="nav-row">
+      <button class="nav-prev" onclick="nav('prev')">← Previous</button>
+      <button class="nav-next" onclick="nav('next')">Next →</button>
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <div class="next-section">
+      <div class="section-label">Next slide</div>
+      <div class="next-frame-wrap">
+        <iframe id="next-frame" src="deck.html?_snthumb=next" title="Next slide"></iframe>
+      </div>
+      <div class="next-title" id="next-title"></div>
+    </div>
+
+    <div class="notes-section">
+      <div class="section-label">Speaker notes</div>
+      <div class="notes-box" id="notes-box">
+        <span class="empty">Loading…</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="kbd-hint">
+  <kbd>←</kbd> <kbd>→</kbd> arrows or <kbd>Space</kbd> to advance &nbsp;·&nbsp;
+  <kbd>R</kbd> reset &nbsp;·&nbsp; projector window syncs automatically
+</div>
+
+<script>
+var idx = 0;
+var total = 0;
+var notes = [];
+var slideLabels = [];
+var timerMs = 0;
+var timerStart = null;
+var timerInterval = null;
+var timerRunning = false;
+
+/* ── BroadcastChannel ── */
+var bc = new BroadcastChannel('deck-presenter');
+bc.addEventListener('message', function(e) {
+  var d = e.data;
+  if (d && d.type === 'sc') {
+    idx = d.i;
+    if (d.total) total = d.total;
+    render();
+  }
+});
+
+/* ── Navigation ── */
+function nav(dir) {
+  bc.postMessage({ type: dir });
+}
+
+function goTo(i) {
+  bc.postMessage({ type: 'go', i: i });
+}
+
+/* ── Render ── */
+function render() {
+  document.getElementById('cur-num').textContent = idx + 1;
+  document.getElementById('sep').textContent = '/ ' + (total || '?');
+
+  var note = notes[idx] || '';
+  var box = document.getElementById('notes-box');
+  if (note.trim()) {
+    box.innerHTML = note.split('\n')
+      .filter(function(l) { return l.trim(); })
+      .map(function(l) {
+        return '<p>' + escHtml(l.trim()) + '</p>';
+      }).join('');
+  } else {
+    box.innerHTML = '<span class="empty">No notes for this slide.</span>';
+  }
+
+  var nextLabel = slideLabels[idx + 1] || '';
+  document.getElementById('next-title').textContent = nextLabel ? '→ ' + nextLabel : '';
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ── Load notes + labels from deck.html ── */
+fetch('deck.html')
+  .then(function(r) { return r.text(); })
+  .then(function(html) {
+    // Extract speaker-notes JSON
+    var m = html.match(/<script[^>]+id="speaker-notes"[^>]*>([\s\S]*?)<\/script>/);
+    if (m) { try { notes = JSON.parse(m[1]); } catch(e) {} }
+
+    // Extract slide labels from data-screen-label attributes
+    var re = /data-screen-label="([^"]+)"/g;
+    var match;
+    slideLabels = [];
+    while ((match = re.exec(html)) !== null) slideLabels.push(match[1]);
+    total = notes.length || slideLabels.length;
+
+    render();
+  })
+  .catch(function() {
+    document.getElementById('notes-box').innerHTML =
+      '<span class="empty">Could not load notes — open presenter.html from a local server or Chrome with file access.</span>';
+  });
+
+/* ── Keyboard ── */
+document.addEventListener('keydown', function(e) {
+  var tag = document.activeElement && document.activeElement.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+    e.preventDefault(); nav('next');
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+    e.preventDefault(); nav('prev');
+  } else if (e.key === 'r' || e.key === 'R') {
+    e.preventDefault(); goTo(0);
+  }
+});
+
+/* ── Projector window ── */
+function openProjector() {
+  var w = window.screen.availWidth;
+  var h = window.screen.availHeight;
+  window.open('deck.html', 'deck-projector',
+    'width=' + w + ',height=' + h + ',menubar=no,toolbar=no,location=no,status=no');
+}
+
+/* ── Timer ── */
+function toggleTimer() {
+  if (!timerRunning) {
+    timerStart = Date.now();
+    timerRunning = true;
+    document.getElementById('timer-btn').textContent = '⏸ Pause';
+    timerInterval = setInterval(tickTimer, 500);
+    tickTimer();
+  } else {
+    timerMs += Date.now() - timerStart;
+    timerRunning = false;
+    clearInterval(timerInterval);
+    document.getElementById('timer-btn').textContent = '▶ Resume';
+  }
+}
+
+function resetTimer() {
+  timerMs = 0;
+  timerStart = timerRunning ? Date.now() : null;
+  if (!timerRunning) document.getElementById('timer-btn').textContent = '▶ Start Timer';
+  tickTimer();
+}
+
+function tickTimer() {
+  var elapsed = timerMs + (timerRunning && timerStart ? Date.now() - timerStart : 0);
+  var secs = Math.floor(elapsed / 1000);
+  var m = Math.floor(secs / 60);
+  var s = secs % 60;
+  var h = Math.floor(m / 60);
+  m = m % 60;
+  var str = h > 0
+    ? pad(h) + ':' + pad(m) + ':' + pad(s)
+    : pad(m) + ':' + pad(s);
+  var el = document.getElementById('timer-display');
+  el.textContent = str;
+  // Overtime if > 135 min
+  el.className = 'timer-display' + (secs > 135 * 60 ? ' overtime' : '');
+}
+
+function pad(n) { return n < 10 ? '0' + n : String(n); }
+</script>
+</body>
+</html>
