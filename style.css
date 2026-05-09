@@ -428,8 +428,8 @@ section.green .quote { color: var(--black); }
 .quote-attr {
   margin-top: 50px;
   font-family: "JetBrains Mono", monospace;
-  font-size: 26px;
-  letter-spacing: 0.2em;
+  font-size: 40px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
