@@ -4,6 +4,13 @@ A 140-minute (~135 min) university guest lecture deck. Audience = UX / programmi
 
 ---
 
+## ⚡ Before ANY deck.html edit
+
+**Read `SLIDES.md` first.** It lists every slide's line number. Jump directly to the right line — do not scan the whole file.
+After any add/delete/reorder, update `SLIDES.md` in the same commit.
+
+---
+
 ## 🎯 Hard rules — do not violate
 
 1. **Language: full English on slides** (speaker may mix 中文 verbally; speaker notes in English bullets).
