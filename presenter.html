@@ -221,7 +221,13 @@
   <button class="timer-btn" id="timer-btn" onclick="toggleTimer()">▶ Start Timer</button>
   <button onclick="resetTimer()" style="padding:7px 10px;">↺</button>
   <div class="topbar-right">
-    <button class="accent" onclick="openProjector()">◉ Open on Projector</button>
+    <a href="deck.html" target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:6px;
+              background:#1538FF;border:1px solid #1538FF;color:#fff;
+              padding:7px 14px;border-radius:8px;cursor:pointer;
+              font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;">
+      ◉ Open on Projector
+    </a>
   </div>
 </div>
 
@@ -351,13 +357,7 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-/* ── Projector window ── */
-function openProjector() {
-  var w = window.screen.availWidth;
-  var h = window.screen.availHeight;
-  window.open('deck.html', 'deck-projector',
-    'width=' + w + ',height=' + h + ',menubar=no,toolbar=no,location=no,status=no');
-}
+/* openProjector replaced by <a target="_blank"> — avoids popup blocker */
 
 /* ── Timer ── */
 function toggleTimer() {
