@@ -9,8 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Archivo+Black&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <script src="deck-stage.js"></script>
 
-<script type="application/json" id="speaker-notes">
-[
+<script type="application/json" id="speaker-notes">[
   "Cover. Hold a beat. 'Hey everyone — As a designer. That's the whole brief tonight.' Tags below = the map. ~30s.",
   "Self intro. BA TW → MA UK → PlanB. Brand + Web. Half my coworkers I've never met IRL. <90s.",
   "You've seen the work. Three pieces. Don't sell — just orient so they know what I mean later. ~60s.",
@@ -30,14 +29,14 @@
   "Relationship map. I'm in the centre. PM at top. All roads lead through the designer.",
   "Person 01 — PM. Most meetings, most opinions. Learn their taste first.",
   "Person 02 — Marketing. Loudest internal client. Always urgent. Template library is your peace.",
-  "Setup question. 'How good does your English actually need to be?' Pause. Let someone answer.",
+  "好看 ≠ 有用. High-traffic ugly vs beautiful no-click. Which would you ship?",
   "Person 03 — Engineers. Logic-first. Don't argue taste — argue data, function, outcome.",
   "Sandwich method. Demo both versions out loud. Pause — let them absorb.",
   "Q break Ch.01. ~5 min. Prompt: what surprised you most?",
   "Ch.01 recap. Match chapter theme — what designers ACTUALLY do. Three lines. Read each, pause. Bridge to Ch.02.",
   "",
   "Team scattered. Name the countries. 'Half my coworkers I've never met in person.' Let that land.",
-  "好看 ≠ 有用. High-traffic ugly vs beautiful no-click. Which would you ship?",
+  "Setup question. 'How good does your English actually need to be?' Pause. Let someone answer.",
   "Clear beats fluent. This is the relief slide. Precision over pretty sentences.",
   "3 tips. Walk each one. Tip 3 (How are you?) usually surprises people.",
   "The Good 01. You can push back. Frame it right — suggestion + reasoning.",
@@ -106,8 +105,7 @@
   "Open Q&A. Ira Glass quote. Biggest permission to ask anything.",
   "Thank you. Sincere. No more slides after this. Let it breathe.",
   "Contact. Leave it up while you wrap. Invite them to reach out."
-]
-</script>
+]</script>
 
 <link rel="stylesheet" href="style.css">
 
@@ -294,30 +292,24 @@
   <div class="hdr"><span class="mark">01 — BRAND DESIGNER</span></div>
   <div class="body">
     <h2 class="display sm" style="margin-top:0;">What I actually <span class="hl">make.</span></h2>
-    <div style="flex:1; margin-top:36px; border-top:1.5px solid var(--rule-strong); display:flex; flex-direction:column; justify-content:space-between;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Brand <span class="hl">systems</span> &amp; guidelines</span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Colour, type, grid, tone — the <span class="hl">rulebook</span> every asset is built from</span>
+    <div style="flex:1; margin-top:36px; border-top:1.5px solid var(--rule-strong); display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,1fr);">
+      <div style="padding:32px 40px 32px 0; border-bottom:1.5px solid var(--rule); border-right:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;"><span class="hl">Logo</span></span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Event &amp; <span class="hl">campaign</span> visuals</span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Key visuals, banners, stage graphics, <span class="hl">social cut-downs</span></span>
+      <div style="padding:32px 0 32px 60px; border-bottom:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;"><span class="hl">Poster &amp; flyer</span></span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;"><span class="hl">Presentations</span> &amp; print</span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Pitch decks, reports, merch — anything that <span class="hl">goes out the door</span></span>
+      <div style="padding:32px 40px 32px 0; border-bottom:1.5px solid var(--rule); border-right:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;"><span class="hl">Banner &amp; social</span></span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Internal tools &amp; <span class="hl">templates</span></span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Slide decks, doc templates — so others can <span class="hl">self-serve</span> on-brand</span>
+      <div style="padding:32px 0 32px 60px; border-bottom:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;"><span class="hl">Presentation deck</span></span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Photography direction</span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Shot lists, moodboards, art direction on set or remote</span>
+      <div style="padding:32px 40px 32px 0; border-right:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;">Brand guidelines</span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0;">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Brand audits &amp; <span class="hl">refresh</span></span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Review what's drifted, tighten <span class="hl">consistency</span>, update the system</span>
+      <div style="padding:32px 0 32px 60px; display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;">Campaign visual</span>
       </div>
     </div>
   </div>
@@ -376,26 +368,24 @@
   <div class="hdr"><span class="mark">01 — UIUX DESIGNER</span></div>
   <div class="body">
     <h2 class="display sm" style="margin-top:0;">What I actually <span class="hl">do.</span></h2>
-    <div style="flex:1; margin-top:36px; border-top:1.5px solid var(--rule-strong); display:flex; flex-direction:column; justify-content:space-between;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Flow <span class="hl">design</span></span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Turn PM requirements into a <span class="hl">clickable</span>, testable prototype</span>
+    <div style="flex:1; margin-top:36px; border-top:1.5px solid var(--rule-strong); display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,1fr);">
+      <div style="padding:32px 40px 32px 0; border-bottom:1.5px solid var(--rule); border-right:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;"><span class="hl">App &amp; web design</span></span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Visual <span class="hl">decisions</span></span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Every element — size, colour, spacing — has a <span class="hl">documented reason</span></span>
+      <div style="padding:32px 0 32px 60px; border-bottom:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;"><span class="hl">Prototype</span></span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Dev <span class="hl">sync</span></span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">What's buildable, what'll break — you're the <span class="hl">translator</span></span>
+      <div style="padding:32px 40px 32px 0; border-bottom:1.5px solid var(--rule); border-right:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;"><span class="hl">Visual design</span></span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0; border-bottom:1.5px solid var(--rule);">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Test &amp; <span class="hl">iterate</span></span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Prototype → user test → refine → repeat until it <span class="hl">works</span></span>
+      <div style="padding:32px 0 32px 60px; border-bottom:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;">Dev handoff</span>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 80px; padding:18px 0;">
-        <span style="font-family:'Archivo Black',sans-serif; font-size:34px; line-height:1.1; letter-spacing:-0.01em; text-transform:uppercase;">Ship &amp; <span class="hl">measure</span></span>
-        <span style="font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--muted); line-height:1.3;">Handoff specs to dev, then watch the metrics <span class="hl">post-launch</span></span>
+      <div style="padding:32px 40px 32px 0; border-right:1.5px solid var(--rule); display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;">User testing</span>
+      </div>
+      <div style="padding:32px 0 32px 60px; display:flex; align-items:center;">
+        <span style="font-family:'Archivo Black',sans-serif; font-size:52px; line-height:1; letter-spacing:-0.015em; text-transform:uppercase;">Ship &amp; track</span>
       </div>
     </div>
   </div>
@@ -457,12 +447,12 @@
     <h2 class="display sm" style="margin-top:0; color:var(--ink);">Who I talk to <span class="hl">all day.</span></h2>
     <div class="talkmap">
       <div class="me">ME</div>
-      <div class="node n1"><span class="role">Product<br>Manager</span><span class="note">Weekly sync · most opinions</span></div>
-      <div class="node n2"><span class="role">Web<br>Team</span><span class="note">Build what I design</span></div>
-      <div class="node n3"><span class="role">Marketing<br>Team</span><span class="note">Most urgent requests</span></div>
-      <div class="node n4"><span class="role">Engineers</span><span class="note">Handoff + feasibility</span></div>
-      <div class="node n5"><span class="role">Content &amp;<br>Partners</span><span class="note">Small asks, often</span></div>
-      <div class="node n6"><span class="role">Other<br>Leads</span><span class="note">Occasional projects</span></div>
+      <div class="node n1"><span class="role">Product<br>Manager</span></div>
+      <div class="node n2" style="right:12%;"><span class="role">Web<br>Team</span></div>
+      <div class="node n3" style="left:12%;"><span class="role">Marketing<br>Team</span></div>
+      <div class="node n4" style="right:12%;"><span class="role">Engineers</span></div>
+      <div class="node n5" style="left:12%;"><span class="role">Content &amp;<br>Partners</span></div>
+      <div class="node n6"><span class="role">Other<br>Leads</span></div>
     </div>
   </div>
 </section>
@@ -492,11 +482,27 @@
 </section>
 
 <!-- ═══════════ 20 · ENGLISH QUESTION ═══════════ -->
-<section data-label="English question" data-screen-label="20 English — how good?" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Looks vs works" data-screen-label="20 好看≠有用" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
-  <div class="hdr"><span class="mark">02 — WORKING ENGLISH</span></div>
-  <div class="body" style="justify-content:center;">
-    <div class="quote">"How good does<br>your English<br>need to <span class="hl">be?"</span></div>
+  <div class="hdr"><span class="mark">01 — DESIGN THINKING</span></div>
+  <div class="body">
+    <h2 class="display sm" style="margin-top:0;">Looks good <span class="hl">≠</span> works.</h2>
+    <div class="twocol" style="margin-top:40px; flex:1; align-items:stretch;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="flex:1; background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; position:relative; display:flex; align-items:flex-end; padding:24px; overflow:hidden;">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:100px; line-height:1; color:rgba(207,255,60,0.08); position:absolute; top:16px; left:24px; text-transform:uppercase;">Ugly</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ high-traffic banner ]</span>
+        </div>
+        <div style="font-family:'Archivo Black',sans-serif; font-size:36px; letter-spacing:-0.01em; text-transform:uppercase; color:var(--green);">High traffic. Converts.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="flex:1; background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; position:relative; display:flex; align-items:flex-end; padding:24px; overflow:hidden;">
+          <span style="font-family:'Archivo Black',sans-serif; font-size:100px; line-height:1; color:rgba(207,255,60,0.08); position:absolute; top:16px; left:24px; text-transform:uppercase;">Pretty</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ award-winning banner ]</span>
+        </div>
+        <div style="font-family:'Archivo Black',sans-serif; font-size:36px; letter-spacing:-0.01em; text-transform:uppercase; color:var(--muted);">Looks great. Nobody clicks.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -581,27 +587,11 @@
 </section>
 
 <!-- ═══════════ 27 · 好看 ≠ 有用 ═══════════ -->
-<section data-label="Looks vs works" data-screen-label="27 好看≠有用" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="English question" data-screen-label="27 English — how good?" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
-  <div class="hdr"><span class="mark">01 — DESIGN THINKING</span></div>
-  <div class="body">
-    <h2 class="display sm" style="margin-top:0;">Looks good <span class="hl">≠</span> works.</h2>
-    <div class="twocol" style="margin-top:40px; flex:1; align-items:stretch;">
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div style="flex:1; background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; position:relative; display:flex; align-items:flex-end; padding:24px; overflow:hidden;">
-          <span style="font-family:'Archivo Black',sans-serif; font-size:100px; line-height:1; color:rgba(207,255,60,0.08); position:absolute; top:16px; left:24px; text-transform:uppercase;">Ugly</span>
-          <span style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ high-traffic banner ]</span>
-        </div>
-        <div style="font-family:'Archivo Black',sans-serif; font-size:36px; letter-spacing:-0.01em; text-transform:uppercase; color:var(--green);">High traffic. Converts.</div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <div style="flex:1; background:linear-gradient(135deg,#0d0d0d,#111); border:1.5px solid var(--rule); border-radius:8px; position:relative; display:flex; align-items:flex-end; padding:24px; overflow:hidden;">
-          <span style="font-family:'Archivo Black',sans-serif; font-size:100px; line-height:1; color:rgba(207,255,60,0.08); position:absolute; top:16px; left:24px; text-transform:uppercase;">Pretty</span>
-          <span style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:.14em; color:rgba(255,255,255,.25); text-transform:uppercase;">[ award-winning banner ]</span>
-        </div>
-        <div style="font-family:'Archivo Black',sans-serif; font-size:36px; letter-spacing:-0.01em; text-transform:uppercase; color:var(--muted);">Looks great. Nobody clicks.</div>
-      </div>
-    </div>
+  <div class="hdr"><span class="mark">02 — WORKING ENGLISH</span></div>
+  <div class="body" style="justify-content:center;">
+    <div class="quote">"How good does<br>your English<br>need to <span class="hl">be?"</span></div>
   </div>
 </section>
 
