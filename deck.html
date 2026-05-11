@@ -9,8 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Archivo+Black&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <script src="deck-stage.js"></script>
 
-<script type="application/json" id="speaker-notes">
-[
+<script type="application/json" id="speaker-notes">[
   "· Hold a beat before speaking.\n· \"Tonight's question: what's worth getting good at?\"\n· 簡單自我介紹就好，不要賣太多",
   "· BA Taiwan design → MA UK Visual Communication → PlanB Network\n· Brand + Web is my domain — not product design\n· Half my coworkers I've never met in person",
   "· Three pieces — point briefly, don't sell hard\n· Orient: this is the kind of output we're talking about\n· [placeholder — swap in real screenshots later]",
@@ -64,11 +63,14 @@
   "· 三大類：圖片 / 影片 / 網頁\n· 每類都有 before/after + 工具推薦\n· \"At minimum, everyone makes presentations — so this is useful regardless of your field\"",
   "· Before: 找 reference + Photoshop 拼 → hours\n· After: prompt → generate → refine → minutes\n· 強調：還是要 Photoshop 收尾，AI output 通常不能直接用",
   "· (1) Claude 寫精準 prompt\n· (2) Freepik 帶參考圖生成\n· (3) Photoshop / Figma 修細節 + typography\n· \"The prompt is the brief. The output is the rough draft.\"",
+  "· Show the Freepik interface — let them see what the tool looks like",
   "· Freepik / Midjourney / nano-banana / GPT-image-2\n· 優：快得到初稿\n· 缺：生成出來通常不能直接編輯 — 所以一定要會 Photoshop",
   "· Before: 拍攝或找素材 + 剪輯\n· After: 節點式生成，一段一段拼\n· \"I don't need a camera anymore for 80% of my video work\"",
   "· Freepik Spaces — 節點式 canvas\n· 一個 node output 餵進下一個 node → 匯出\n· \"Storyboard first. Generate section by section. Don't try to do it all at once.\"",
+  "· Play the video — show how the node canvas works in real time",
   "· Kling 3.0 — 動作連貫性好\n· 缺：複雜鏡頭容易坍、長片不穩定\n· 配音：重要影片自己配 / 剪輯：CapCut or Premiere 拼接",
   "· Before: 手寫 code or 外包\n· After: 設計師自己一條龍出網站\n· \"This is the one that changed my day-to-day the most\"",
+  "· Play the Stitch demo — show the design exploration interface",
   "· (1) Google Stitch — 粗模板、探索風格\n· (2) Claude Code — plan mode + iterating\n· (3) Figma / Paper — 精修手控\n· \"Plan mode 一定要開\"",
   "· 讀每一步，不要跳\n· 強調：UI 完成才連功能；視覺確定才加動畫\n· \"Avoid !important at all costs — future you will thank present you\"",
   "· Skills: uiux-master / GSAP animation\n· 三鐵律：設計系統、響應式、clean code\n· \"If the code isn't clean, the design isn't done\"",
@@ -82,12 +84,10 @@
   "· Writing = thinking made visible — 沒辦法假裝\n· \"If you can't write it clearly, you don't understand it yet.\"\n· 回呼 Ch02 Async：能寫就寫，不要開會",
   "· 分享過程，不是只分享完成品\n· \"Your next opportunity usually starts with one share.\"\n· 不用等很厲害才開始 — 現在就可以",
   "· Portfolio · 社群 · 個人網頁\n· \"Google 搜不到的人，等於不存在\"\n· \"Your digital presence is the door. Opportunity has to be able to knock.\"",
-  "· 設計圈很小，台灣更小\n· 幫過你的人記得；你幫過的人也記得\n· \"Nobody goes far alone\"",
   "· Ira Glass quote — 品味超前能力，這是起點，不是問題\n· \"沒有蠢問題\"\n· 讓學生主導方向",
   "· 真誠。不要趕。\n· 謝學生花一個晚上\n· \"You showed up — that already puts you ahead of most people your age.\"",
   "· Email / Twitter / LinkedIn / 個人網頁\n· \"如果今天有什麼不好意思問的，或我沒講到的，歡迎之後聯絡\"\n· Leave this slide up during the room clears"
-]
-</script>
+]</script>
 
 <link rel="stylesheet" href="style.css">
 
@@ -263,9 +263,13 @@
   <div class="hdr"><span class="mark">01 — PLAN ₿ NETWORK</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
     <h2 class="display sm" style="margin-top:0;">Plan <span class="hl">₿</span> Brand System</h2>
-    <div style="flex:1; min-height:0; margin-top:32px; border-radius:12px; overflow:hidden;">
+    <a href="https://www.figma.com/deck/yB13vaju3On3kNABBzpVL4" target="_blank" rel="noopener"
+       style="flex:1; min-height:0; margin-top:32px; border-radius:12px; overflow:hidden; display:block; position:relative; text-decoration:none;">
       <img src="assets/p10.png" style="width:100%; height:100%; object-fit:cover; display:block;">
-    </div>
+      <div style="position:absolute; bottom:20px; right:24px; background:rgba(0,0,0,0.65); backdrop-filter:blur(6px);
+                  font-family:'JetBrains Mono',monospace; font-size:22px; color:#fff; padding:8px 16px;
+                  border-radius:6px; letter-spacing:0.05em;">↗ Open in Figma</div>
+    </a>
   </div>
 </section>
 
@@ -331,9 +335,13 @@
   <div class="hdr"><span class="mark">01 — DESIGN SYSTEM</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
     <h2 class="display sm" style="margin-top:0;">Plan <span class="hl">₿</span> Design System</h2>
-    <div style="flex:1; margin-top:32px; border-radius:12px; overflow:hidden;">
+    <a href="https://www.figma.com/design/QFtpdjQlnHw4DcLyjY9jJl/%F0%9F%9F%A7-Design-System-%7C-Block-Found--Copy-?node-id=937-46359&t=RIMfTNtDNLbOAw5K-1" target="_blank" rel="noopener"
+       style="flex:1; margin-top:32px; border-radius:12px; overflow:hidden; display:block; position:relative; text-decoration:none;">
       <img src="assets/p13.png" style="width:100%; height:100%; object-fit:contain; background:#050607; display:block;">
-    </div>
+      <div style="position:absolute; bottom:20px; right:24px; background:rgba(0,0,0,0.65); backdrop-filter:blur(6px);
+                  font-family:'JetBrains Mono',monospace; font-size:22px; color:#fff; padding:8px 16px;
+                  border-radius:6px; letter-spacing:0.05em;">↗ Open in Figma</div>
+    </a>
   </div>
 </section>
 
@@ -968,8 +976,20 @@
   </div>
 </section>
 
+<!-- ═══════════ NEW · FREEPIK SCREENSHOT ═══════════ -->
+<section data-label="Freepik screenshot" data-screen-label="54 Freepik" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">03 — IMAGE</span></div>
+  <div class="body" style="justify-content:center;gap:24px;">
+    <h2 class="display sm" style="margin-top:0;">Freepik</h2>
+    <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;">
+      <img src="assets/freepik.png" style="max-width:100%;max-height:100%;object-fit:contain;display:block;">
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ 69 · IMAGE TOOLS ═══════════ -->
-<section data-label="Image tools" data-screen-label="54 Image tools" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Image tools" data-screen-label="55 Image tools" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — IMAGE</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -990,7 +1010,7 @@
 </section>
 
 <!-- ═══════════ 70 · VIDEO BEFORE AFTER ═══════════ -->
-<section data-label="Video before after" data-screen-label="55 Video — before/after" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Video before after" data-screen-label="56 Video — before/after" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — VIDEO</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -998,6 +1018,8 @@
     <div class="compare" style="margin-top:0;">
       <div class="col good">
         <h3>Before AI</h3>
+        <a href="https://www.figma.com/design/ZeeZcE7v8URvOOp9ymPEZ5/%F0%9F%8E%A8-Bank-of-Image?node-id=9034-908&t=tlXJH6uGft7oOPyn-1" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:6px;margin-bottom:18px;font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--green);text-decoration:none;letter-spacing:0.05em;">↗ Image Bank</a>
         <ul>
           <li>Shoot footage or find stock</li>
           <li>Manual edit in Premiere / Final Cut</li>
@@ -1017,7 +1039,7 @@
 </section>
 
 <!-- ═══════════ 71 · VIDEO WORKFLOW ═══════════ -->
-<section data-label="Video workflow" data-screen-label="56 Video workflow" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Video workflow" data-screen-label="57 Video workflow" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — VIDEO</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -1030,8 +1052,21 @@
   </div>
 </section>
 
+<!-- ═══════════ NEW · FREEPIK SPACES VIDEO ═══════════ -->
+<section data-label="Freepik Spaces video" data-screen-label="58 Freepik Spaces" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">03 — VIDEO</span></div>
+  <div class="body" style="justify-content:center;gap:24px;">
+    <h2 class="display sm" style="margin-top:0;">Freepik Spaces</h2>
+    <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;">
+      <video src="assets/freepik-space.mov" controls muted playsinline
+             style="max-width:100%;max-height:100%;display:block;border-radius:8px;"></video>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ 72 · VIDEO TOOLS ═══════════ -->
-<section data-label="Video tools" data-screen-label="57 Video tools" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Video tools" data-screen-label="59 Video tools" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — VIDEO</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -1057,7 +1092,7 @@
 </section>
 
 <!-- ═══════════ 73 · WEB BEFORE AFTER ═══════════ -->
-<section data-label="Web before after" data-screen-label="58 Web — before/after" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Web before after" data-screen-label="60 Web — before/after" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — WEB</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -1075,6 +1110,8 @@
       </div>
       <div class="col done">
         <h3>After AI</h3>
+        <a href="https://katy21.com/" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:6px;margin-bottom:18px;font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--green);text-decoration:none;letter-spacing:0.05em;">↗ katy21.com</a>
         <ul>
           <li>Designer builds the whole site</li>
           <li>Design + code in one pipeline</li>
@@ -1086,7 +1123,20 @@
 </section>
 
 <!-- ═══════════ 74 · WEB WORKFLOW ═══════════ -->
-<section data-label="Web workflow" data-screen-label="59 Web workflow" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<!-- ═══════════ NEW · STITCH VIDEO ═══════════ -->
+<section data-label="Stitch video" data-screen-label="61 Google Stitch" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <div class="grid-dark"></div>
+  <div class="hdr"><span class="mark">03 — WEB</span></div>
+  <div class="body" style="justify-content:center;gap:24px;">
+    <h2 class="display sm" style="margin-top:0;">Google Stitch</h2>
+    <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;">
+      <video src="assets/stitch.mov" controls muted playsinline
+             style="max-width:100%;max-height:100%;display:block;border-radius:8px;"></video>
+    </div>
+  </div>
+</section>
+
+<section data-label="Web workflow" data-screen-label="62 Web workflow" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — WEB</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -1100,7 +1150,7 @@
 </section>
 
 <!-- ═══════════ 75 · CLAUDE CODE STEPS ═══════════ -->
-<section data-label="Claude Code steps" data-screen-label="60 Claude Code steps" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Claude Code steps" data-screen-label="63 Claude Code steps" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — WEB</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -1116,7 +1166,7 @@
 </section>
 
 <!-- ═══════════ 76 · SKILLS + RULES ═══════════ -->
-<section data-label="Skills and rules" data-screen-label="61 Skills + 3 rules" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Skills and rules" data-screen-label="64 Skills + 3 rules" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">03 — WEB</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -1144,7 +1194,7 @@
 
 
 <!-- ═══════════ 79 · BRAND MD ═══════════ -->
-<section class="blue" data-label="Brand md" data-screen-label="62 Write brand .md" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section class="blue" data-label="Brand md" data-screen-label="65 Write brand .md" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-tex"></div>
   <div class="hdr"><span class="mark">03 — DESIGNER'S NEXT STEP</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
@@ -1154,7 +1204,7 @@
 </section>
 
 <!-- ═══════════ 80 · TASTE IS THE SKILL ═══════════ -->
-<section class="blue" data-label="Taste is the skill" data-screen-label="63 Taste is the skill" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section class="blue" data-label="Taste is the skill" data-screen-label="66 Taste is the skill" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-tex"></div>
   <div class="hdr"><span class="mark">03 — AI</span></div>
   <div class="body" style="justify-content:center;">
@@ -1166,7 +1216,7 @@
 
 
 <!-- ═══════════ 84 · Q BREAK CH04 ═══════════ -->
-<section class="green" data-label="Q break Ch03" data-screen-label="64 Q break — Ch03" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section class="green" data-label="Q break Ch03" data-screen-label="67 Q break — Ch03" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="hdr"><span class="mark">Q BREAK — 04</span></div>
   <div class="body" style="justify-content:center;gap:40px;">
     <h2 class="display sm" style="margin-top:0;color:var(--black);">Questions.</h2>
@@ -1184,7 +1234,7 @@
 
 <!-- ══════════════════════════ CH.05 ══════════════════════════ -->
 <!-- ═══════════ NEW · CH04 DIVIDER ═══════════ -->
-<section class="blue divider" data-label="Ch04 Divider" data-screen-label="65 Ch04 — Conclusion" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section class="blue divider" data-label="Ch04 Divider" data-screen-label="68 Ch04 — Conclusion" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-tex"></div>
   <div class="hdr"><span class="mark">CH 04 — CONCLUSION</span></div>
   <div class="body" style="padding-top:140px; padding-bottom:140px;">
@@ -1195,7 +1245,7 @@
 </section>
 
 <!-- ═══════════ 86 · YO OPENER ═══════════ -->
-<section class="blue" data-label="22yo opener" data-screen-label="66 22yo opener" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section class="blue" data-label="22yo opener" data-screen-label="69 22yo opener" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-tex"></div>
   <div class="hdr"><span class="mark">04 — CONCLUSION</span></div>
   <div class="body" style="justify-content:center;">
@@ -1204,9 +1254,9 @@
 </section>
 
 <!-- ═══════════ 87 · SKILLS THAT COMPOUND ═══════════ -->
-<section data-label="Skills that compound" data-screen-label="67 Skills that compound" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Skills that compound" data-screen-label="70 Skills that compound" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
-  <div class="hdr"><span class="mark">01 — CAREER</span></div>
+  <div class="hdr"><span class="mark">04 — CONCLUSION</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
     <h2 class="display sm" style="margin-top:0;">Skills that <span class="hl">compound.</span></h2>
     <div style="flex:1; margin-top:36px; border-top:1.5px solid var(--rule-strong); display:flex; flex-direction:column; justify-content:space-between;">
@@ -1224,7 +1274,7 @@
       </div>
       <div style="display:grid; grid-template-columns:56px 1fr; gap:0 40px; align-items:baseline; padding:18px 0; border-bottom:1.5px solid var(--rule-strong);">
         <span style="font-family:'Archivo Black',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:-0.02em;">04</span>
-        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; letter-spacing:-0.02em; text-transform:uppercase;">A little code — speak the engineer's language</span>
+        <span style="font-family:'Archivo Black',sans-serif; font-size:44px; line-height:1.1; letter-spacing:-0.02em; text-transform:uppercase;">Communication — sell what you make</span>
       </div>
       <div style="display:grid; grid-template-columns:56px 1fr; gap:0 40px; align-items:baseline; padding:18px 0;">
         <span style="font-family:'Archivo Black',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:-0.02em;">05</span>
@@ -1235,71 +1285,61 @@
 </section>
 
 <!-- ═══════════ 88 · COMPOUND SKILLS ═══════════ -->
-<section data-label="Compound skills" data-screen-label="68 Compound skills" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Compound skills" data-screen-label="71 Compound skills" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">04 — CONCLUSION</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ 80</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ Ch.01</div>
     <h2 class="display sm" style="margin-top:0;">Pick skills that <span class="hl">compound.</span></h2>
-    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">New software depreciates. Thinking, writing, research, and taste hold value forever. Back to Ch.01 — research + systems are your moat.</p>
+    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">Ch.01 — A designer's real value isn't in the files they deliver. It's in the systems and thinking behind them. Learn that, and the tools don't matter.</p>
   </div>
 </section>
 
 <!-- ═══════════ 89 · LEARN TO WRITE ═══════════ -->
-<section data-label="Learn to write" data-screen-label="69 Learn to write" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Learn to write" data-screen-label="72 Learn to write" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">04 — CONCLUSION</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ 80</div>
-    <h2 class="display sm" style="margin-top:0;">Learn to <span class="hl">write.</span></h2>
-    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">Not copywriting. Getting what's in your head into words. Writing is a receipt for your thinking. Back to Ch.02 — write first, meet second.</p>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ Ch.02</div>
+    <h2 class="display sm" style="margin-top:0;">Learn to write &amp; <span class="hl">communicate.</span></h2>
+    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">Ch.02 — Foreign teams run on text. If you can write clearly, you can work with anyone, anywhere. Clear thinking is the only kind that travels across time zones.</p>
   </div>
 </section>
 
 <!-- ═══════════ 90 · BUILD IN PUBLIC ═══════════ -->
-<section data-label="Build in public" data-screen-label="70 Build in public" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Build in public" data-screen-label="73 Build in public" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">04 — CONCLUSION</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ 80</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ Ch.03</div>
     <h2 class="display sm" style="margin-top:0;">Build in <span class="hl">public.</span></h2>
-    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">Share the process — not just the polished result. Your next opportunity usually comes from one share. Don't wait until you're "good enough."</p>
+    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">Ch.03 — AI gives you speed. But what you do with that time — sharing your process, building in the open — that's what makes you visible and findable.</p>
   </div>
 </section>
 
 <!-- ═══════════ 91 · BE FINDABLE ═══════════ -->
-<section data-label="Be findable" data-screen-label="71 Be findable" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Be findable" data-screen-label="74 Be findable" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="hdr"><span class="mark">04 — CONCLUSION</span></div>
   <div class="body" style="justify-content:center;gap:36px;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ 80</div>
-    <h2 class="display sm" style="margin-top:0;">Be <span class="hl">findable.</span></h2>
-    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">Portfolio. Social presence. Personal site. If Google can't find you, you don't exist to the people who might hire you.</p>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">—</div>
+    <h2 class="display sm" style="margin-top:0;">Stay <span class="hl">curious.</span></h2>
+    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">About everything. People, tools, ideas, other industries. The designers who keep growing are the ones who never stop asking why.</p>
   </div>
 </section>
 
-<!-- ═══════════ 92 · KINDNESS ═══════════ -->
-<section data-label="Kindness curiosity" data-screen-label="72 Kindness + curiosity" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
-  <div class="grid-dark"></div>
-  <div class="hdr"><span class="mark">04 — CONCLUSION</span></div>
-  <div class="body" style="justify-content:center;gap:36px;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:0.2em;color:var(--green);text-transform:uppercase;">/ 80</div>
-    <h2 class="display sm" style="margin-top:0;">Kindness · curiosity ·<br><span class="hl">give back.</span></h2>
-    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;max-width:1300px;">The design world is small. Taiwan's even smaller. The people you help remember. Nobody goes far alone.</p>
-  </div>
-</section>
 
 <!-- ═══════════ 93 · OPEN QA ═══════════ -->
-<section class="green" data-label="Open QA" data-screen-label="73 Open Q&amp;A" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section class="green" data-label="Open QA" data-screen-label="75 Open Q&amp;A" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="hdr"><span class="mark">OPEN Q&amp;A</span></div>
   <div class="body" style="justify-content:center;gap:40px;">
-    <h2 class="display sm" style="margin-top:0;color:var(--black);">No stupid questions.</h2>
-    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;color:var(--black);max-width:1300px;">Ira Glass said: beginners' taste always outpaces their ability — that's not a problem, it's a starting point. Ask anything. Throw ideas. Try a lot of things.</p>
+    <h2 class="display sm" style="margin-top:0;color:var(--black);">"Getting stronger means<br>making things simpler."</h2>
+    <p style="font-family:'Archivo Black',sans-serif;font-size:44px;line-height:1.15;letter-spacing:-0.02em;text-transform:uppercase;color:var(--black);max-width:1300px;">A quote from a designer I admire — and the first thing my boss Samson said to me. It stuck. Ask me anything.</p>
   </div>
 </section>
 
 <!-- ═══════════ 94 · THANK YOU ═══════════ -->
-<section data-label="Thank you" data-screen-label="74 Thank you" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section data-label="Thank you" data-screen-label="76 Thank you" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-dark"></div>
   <div class="body" style="justify-content:center;align-items:center;">
     <h1 class="display xl" style="margin-top:0;text-align:center;">THANK <span class="hl">YOU.</span></h1>
@@ -1308,16 +1348,15 @@
 </section>
 
 <!-- ═══════════ 95 · CONTACT ═══════════ -->
-<section class="blue" data-label="Contact" data-screen-label="75 Contact" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+<section class="blue" data-label="Contact" data-screen-label="77 Contact" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <div class="grid-tex"></div>
   <div class="hdr"><span class="mark">KATY WU</span></div>
   <div class="body" style="justify-content:center;gap:40px;">
     <h2 class="display sm" style="margin-top:0;color:var(--ink);">Find me <span class="hl">here.</span></h2>
-    <div style="display:flex;flex-direction:column;gap:20px;">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:36px;letter-spacing:0.1em;color:var(--ink);text-transform:uppercase;">/ Email &nbsp;&nbsp; bocs12348@gmail.com</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:36px;letter-spacing:0.1em;color:var(--muted-blue);text-transform:uppercase;">/ X / Twitter &nbsp;&nbsp; [ your handle ]</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:36px;letter-spacing:0.1em;color:var(--muted-blue);text-transform:uppercase;">/ LinkedIn &nbsp;&nbsp; [ your profile ]</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:36px;letter-spacing:0.1em;color:var(--muted-blue);text-transform:uppercase;">/ Web &nbsp;&nbsp; [ your site ]</div>
+    <div style="display:grid;grid-template-columns:max-content 1fr;column-gap:60px;row-gap:20px;font-family:'JetBrains Mono',monospace;font-size:36px;letter-spacing:0.1em;color:var(--ink);text-transform:uppercase;">
+      <span>/ Email</span><span>katy.wu@jan3.com</span>
+      <span>/ X</span><span>@katywuu</span>
+      <span>/ Web</span><span>katy221.com</span>
     </div>
     <p style="font-size:30px;color:var(--muted-blue);max-width:1000px;">"If there was anything you didn't get to ask tonight — feel free to reach out anytime."</p>
   </div>
