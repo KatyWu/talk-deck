@@ -216,7 +216,15 @@
 <body>
 
 <div class="topbar">
-  <span class="counter"><strong id="cur-num">—</strong> <span id="sep">/ —</span></span>
+  <span class="counter">
+    <input id="cur-num-input" type="number" min="1" value="1"
+      style="width:56px;background:transparent;border:none;border-bottom:1px solid #444;
+             color:#fff;font-family:'JetBrains Mono','Courier New',monospace;font-size:18px;
+             font-weight:700;text-align:right;padding:2px 4px;outline:none;-moz-appearance:textfield;"
+      onkeydown="if(event.key==='Enter'){var v=parseInt(this.value);if(v>=1&&v<=total)goTo(v-1);}"
+      onfocus="this.select()">
+    <span id="sep">/ —</span>
+  </span>
   <span class="timer-display" id="timer-display">00:00</span>
   <button class="timer-btn" id="timer-btn" onclick="toggleTimer()">▶ Start Timer</button>
   <button onclick="resetTimer()" style="padding:7px 10px;">↺</button>
@@ -298,7 +306,7 @@ function goTo(i) {
 
 /* ── Render ── */
 function render() {
-  document.getElementById('cur-num').textContent = idx + 1;
+  document.getElementById('cur-num-input').value = idx + 1;
   document.getElementById('sep').textContent = '/ ' + (total || '?');
 
   var note = notes[idx] || '';
