@@ -1,6 +1,6 @@
 # Project — Katy 大學演講 / "Global team brand designer experience sharing"
 
-A 140-minute (~135 min) university guest lecture deck. Audience = UX / programming / bitcoin students. Tone = casual share + practical knowledge.
+A 140-minute (~135 min) university guest lecture deck. Audience = UX / programming students. Tone = casual share + practical knowledge.
 
 ---
 
@@ -25,26 +25,33 @@ After any add/delete/reorder, update `SLIDES.md` in the same commit.
 
 ## 🗂 Files
 
-- `deck.html` — the main deck (currently Ch.00 only, 6 slides). Authoritative.
+- `deck.html` — the main deck, **77 slides, all chapters complete**. Authoritative.
+- `presenter.html` — presenter view with timer, speaker notes, next-slide preview, page-jump input (type number + Enter).
 - `deck-stage.js` — slide-deck shell (scaling, nav, speaker notes). Don't edit.
-- `大綱.md` — full content outline, 106 slides, 5 chapters. **Source of truth for content.** User edits this directly between turns.
-- `CLAUDE.md` — this file.
+- `style.css` — shared styles. Edit with care; changes affect all slides.
+- `大綱.md` — full content outline. **Source of truth for content.** User edits this directly between turns.
+- `SLIDES.md` — slide index (number → line → title → chapter). Regenerate with Python after any structural change.
+- `assets/` — images and videos used in slides (freepik.png, freepik-space.mov, stitch.mov).
+
+**GitHub Pages:**
+- Presenter: `https://katywu.github.io/talk-deck/presenter.html`
+- Projector: `https://katywu.github.io/talk-deck/deck.html`
+- Both windows must be in the same browser on the same machine for BroadcastChannel sync.
 
 ---
 
-## 🧱 Chapter plan (per `大綱.md`)
+## 🧱 Chapter plan (current — Bitcoin chapter removed)
 
 | Ch | Topic | Slides | Time |
 |---|---|---|---|
-| 00 | Opening | 6 | 5m |
-| 01 | Brand & UIUX Designer | 27 | 35m |
-| 02 | Working Life — Foreign + Remote (merged) | 26 | 35m (incl. break) |
-| 03 | Bitcoin | 13 | 15m |
-| 04 | AI | 25 | 35m |
-| 05 | 結尾 / Closing | 9 | 10m |
-| **Total** | | **106** | **135m** |
+| 00 | Opening | 4 | 5m |
+| 01 | Brand & UIUX Designer | ~23 | 35m |
+| 02 | Working Life — Foreign + Remote (merged) | ~20 | 35m (incl. break) |
+| 03 | AI & Tools | ~22 | 35m |
+| 04 | Conclusion | ~8 | 10m |
+| **Total** | | **77** | **~135m** |
 
-User has finalized content for all chapters in `大綱.md`. **Always re-read `大綱.md` before editing — user updates it between turns.**
+**Always re-read `大綱.md` before editing — user updates it between turns.**
 
 ---
 
@@ -56,6 +63,7 @@ User has finalized content for all chapters in `大綱.md`. **Always re-read `�
 - Display sizes use `.display` (xl ~360px hero / sm ~180px section) with `.hl` neon-green inline highlight.
 - Reusable layouts already styled in `<style>` block: `.cards.c2/c3/c4`, `.bullets`, `.numlist`, `.twocol`, `.weekgrid`, `.talkmap`, `.compare`, `.timeline`, `.stat`, `.quote`, `.divider`, `.tagrow`, `.eyebrow`, `.subtitle`. **Reuse these — don't invent new layouts unless content genuinely needs it.**
 - Background textures: `.grid-tex` (for `.blue`) / `.grid-dark` (for default). Always include one.
+- Cards/compare/twocol children: do NOT use `flex:1`. Parent `.body` div uses `justify-content:center;gap:36px`.
 
 ---
 
@@ -70,21 +78,23 @@ User has finalized content for all chapters in `大綱.md`. **Always re-read `�
 
 ---
 
-## 📊 Slide content patterns from outline
+## 📊 Slide content patterns
 
-- **Chapter dividers**: `.blue.divider` with big "01 / 02 / …" numeral + chapter title + scribbled English subtitle.
-- **Q break slides**: `.green` background, simple "Q break — [chapter]" + 2–3 prompt questions.
-- **Stakeholder cards (Ch.01)**: `Person 0X — Role` pattern, one card per person, single bold takeaway line at bottom.
-- **Before/After AI examples (Ch.04)**: two-column compare layout.
-- **Recap slides (every chapter)**: `.green` numbered list, 3 takeaways max.
+- **Chapter dividers**: `.blue` with big chapter numeral + title + 48px bridge subtitle (rgba white 0.4).
+- **Q break slides**: `.green` background, quote or prompt questions.
+- **Stakeholder cards (Ch.01)**: `Person 0X — Role` pattern, one card per person.
+- **Before/After AI (Ch.03)**: two-column `.compare` layout. Some columns have Figma/web links.
+- **Video slides**: `<video src="assets/file.mov" controls muted playsinline>` with `max-width/max-height:100%;object-fit:contain`.
+- **Image slides with links**: wrap image container in `<a target="_blank">` with `↗ Tool name` overlay div.
 
 ---
 
 ## ⚠️ Things user has flagged as friction in past
 
-- I once made the deck in **traditional Chinese with serif fonts and beige palette** — completely wrong. User had to re-state the rules. **Re-read this CLAUDE.md if uncertain.**
+- I once made the deck in **traditional Chinese with serif fonts and beige palette** — completely wrong. **Re-read this CLAUDE.md if uncertain.**
 - I once duplicated work because I didn't re-read `大綱.md` after user edited it. **Always re-read before edits.**
-- Validator findings about `<24px` text are usually false positives on chrome (header/footer mono labels at 14–18px are intentional). Ignore unless body text is genuinely small.
+- Validator findings about `<24px` text are usually false positives (header/footer mono labels at 14–18px are intentional). Ignore unless body text is genuinely small.
+- numlist font sizes are intentional: `li { font-size:38px }`, `li::before { font-size:60px }`. Don't increase them.
 
 ---
 
@@ -92,12 +102,35 @@ User has finalized content for all chapters in `大綱.md`. **Always re-read `�
 
 - `<deck-stage>` auto-assigns `data-deck-slide` indices, posts `slideIndexChanged` for speaker notes, handles keyboard nav. Don't manually set indices.
 - Section attrs needed: `data-label="…" data-screen-label="NN Title" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"`.
-- For batch slide edits, prefer `run_script` reading the file as a string and rewriting — avoids fragile multi-line `str_replace_edit` matches.
+- **For batch slide edits**, use Python to read/write the file as a string — avoids fragile multi-line Edit tool matches. Pattern for deletion:
+  ```python
+  # Delete slide N (comment + section block)
+  pattern = r'\n<!-- ═+[^=]+ · LABEL[^>]*═+ -->\n<section[^>]*data-screen-label="N Title[^"]*"[^>]*>.*?</section>'
+  html = re.sub(pattern, '', html, flags=re.DOTALL)
+  # Pop speaker note at 0-indexed position (in reverse order if multiple)
+  notes.pop(N - 1)
+  # Renumber data-screen-labels after deletion
+  for old, new in [(N+1, N), (N+2, N+1), ...]:
+      html = html.replace(f'data-screen-label="{old} ', f'data-screen-label="{new} ')
+  ```
+- **SLIDES.md regeneration** (run after any structural change):
+  ```python
+  import re
+  lines = html.split('\n')
+  for i, line in enumerate(lines, 1):
+      m = re.search(r'<section[^>]*data-screen-label="(\d+)\s+([^"]+)"', line)
+      if m: rows.append((int(m.group(1)), i, m.group(2)))
+  ```
 
 ---
 
-## 🔮 Current status (2026-05-09)
+## 🔮 Current status (2026-05-12)
 
-- ✅ `大綱.md` finalized through all 5 chapters
-- ✅ `deck.html` rebuilt with 6 Ch.00 slides matching outline (cover · self intro · the work · map · what this isn't · what you get)
-- ⏳ Next: Ch.01 (27 slides) — wait for user to confirm Ch.00 visual direction before building
+- ✅ All 77 slides built and committed (latest: `5f2644d`)
+- ✅ Speaker notes written for all slides (JSON array in `<head>`)
+- ✅ presenter.html has page-jump input, timer, next-slide preview
+- ✅ Video slides: freepik-space.mov (slide ~58), stitch.mov (slide ~61)
+- ✅ Figma/web links on image slides (slides 9, 13, 56, 60)
+- ✅ Contact slide (last): katy.wu@jan3.com · @katywuu · katy21.com
+- ✅ Deployed to GitHub Pages
+- ⏳ No pending changes — ready for talk
